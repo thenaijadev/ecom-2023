@@ -1,12 +1,12 @@
+import 'package:ecommerce_application/data/models/product_model.dart';
 import 'package:ecommerce_application/presentation/screens/cart_screen.dart';
 import 'package:ecommerce_application/presentation/screens/error_screen.dart';
 import 'package:ecommerce_application/presentation/screens/buttom_nav_bar.dart';
 import 'package:ecommerce_application/presentation/screens/otp_verification.dart';
+import 'package:ecommerce_application/presentation/screens/product_screen.dart';
 import 'package:ecommerce_application/presentation/screens/recover_password.dart';
-import 'package:ecommerce_application/presentation/screens/registration_screen.dart';
 import 'package:ecommerce_application/presentation/screens/login_screen.dart';
 import 'package:ecommerce_application/presentation/screens/welcome_screen.dart';
-
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -20,9 +20,10 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const CartScreen(),
         );
-      case "/register":
+      case "/product":
+        var data = routeSettings.arguments as ProductModel;
         return MaterialPageRoute(
-          builder: (_) => const RegistrationScreen(),
+          builder: (_) => ProductScreen(product: data),
         );
       case "/login":
         return MaterialPageRoute(

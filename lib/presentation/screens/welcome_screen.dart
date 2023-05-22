@@ -74,7 +74,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   height: animation_2.value,
                 ),
                 const Text(
-                  " Thebie's signature.",
+                  "Store",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Color.fromARGB(255, 255, 255, 255),
@@ -88,7 +88,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.0),
                   child: Text(
-                    "With long experience in the fashon industry, we sell only the best products",
+                    "Best prices at your finger tips",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color.fromARGB(255, 215, 215, 215),
@@ -103,7 +103,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   child: MaterialButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, "/register");
+                      Navigator.pushReplacementNamed(context, "/login");
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
