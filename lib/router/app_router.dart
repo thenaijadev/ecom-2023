@@ -1,47 +1,53 @@
-import 'package:ecommerce_application/data/models/product_model.dart';
-import 'package:ecommerce_application/presentation/screens/cart_screen.dart';
-import 'package:ecommerce_application/presentation/screens/error_screen.dart';
-import 'package:ecommerce_application/presentation/screens/buttom_nav_bar.dart';
-import 'package:ecommerce_application/presentation/screens/otp_verification.dart';
-import 'package:ecommerce_application/presentation/screens/product_screen.dart';
-import 'package:ecommerce_application/presentation/screens/recover_password.dart';
-import 'package:ecommerce_application/presentation/screens/login_screen.dart';
-import 'package:ecommerce_application/presentation/screens/welcome_screen.dart';
+import 'package:ecommerce_application/app/data/models/product_model.dart';
+import 'package:ecommerce_application/app/presentation/screens/buttom_nav_bar.dart';
+import 'package:ecommerce_application/app/presentation/screens/cart_screen.dart';
+import 'package:ecommerce_application/app/presentation/screens/error_screen.dart';
+import 'package:ecommerce_application/app/presentation/screens/login_screen.dart';
+import 'package:ecommerce_application/app/presentation/screens/otp_verification.dart';
+import 'package:ecommerce_application/app/presentation/screens/payment_choice_screen.dart';
+import 'package:ecommerce_application/app/presentation/screens/product_screen.dart';
+import 'package:ecommerce_application/app/presentation/screens/recover_password.dart';
+import 'package:ecommerce_application/app/presentation/screens/welcome_screen.dart';
+import 'package:ecommerce_application/router/routes.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
   Route onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
-      case "/":
+      case Routes.welcomeScreen:
         return MaterialPageRoute(
           builder: (_) => const WelcomeScreen(),
         );
-      case "/cart":
+      case Routes.cartScreen:
         return MaterialPageRoute(
           builder: (_) => const CartScreen(),
         );
-      case "/product":
+      case Routes.productScreen:
         var data = routeSettings.arguments as ProductModel;
         return MaterialPageRoute(
           builder: (_) => ProductScreen(product: data),
         );
-      case "/login":
+      case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (_) => const LoginScreen(),
         );
 
-      case "/passwordrecovery":
+      case Routes.passwordRecoveryScreen:
         return MaterialPageRoute(
           builder: (_) => const PasswordRecoveryScreen(),
         );
-      case "/otpverification":
+      case Routes.otpVerifcationScreen:
         return MaterialPageRoute(
           builder: (_) => const OTPVerificationScreen(),
         );
 
-      case "/home":
+      case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
+        );
+      case Routes.paymentScreen:
+        return MaterialPageRoute(
+          builder: (_) => const PaymentChoiceScreen(),
         );
 
       default:
