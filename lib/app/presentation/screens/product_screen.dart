@@ -1,4 +1,5 @@
 import 'package:ecommerce_application/app/bloc/cart/cart_bloc.dart';
+import 'package:ecommerce_application/app/presentation/widgets/snack_bar.dart';
 import 'package:ecommerce_application/constants/constants.dart';
 import 'package:ecommerce_application/app/data/models/product_model.dart';
 import 'package:ecommerce_application/app/presentation/widgets/app_bar.dart';
@@ -145,6 +146,8 @@ class _ProductScreenState extends State<ProductScreen> {
                           onPressed: () {
                             cartBloc
                                 .add(CartProductAdded(product: widget.product));
+                            InfoSnackBar.showSuccessSnackBar(
+                                context, "Item has been added to cart");
                           },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),

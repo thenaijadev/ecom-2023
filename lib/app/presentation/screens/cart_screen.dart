@@ -1,4 +1,5 @@
 import 'package:ecommerce_application/app/bloc/cart/cart_bloc.dart';
+import 'package:ecommerce_application/app/presentation/widgets/bottom_payment_method_sheet.dart';
 
 import 'package:ecommerce_application/app/presentation/widgets/cart_item.dart';
 import 'package:flutter/material.dart';
@@ -88,7 +89,11 @@ class _CartScreenState extends State<CartScreen> {
                   padding: const EdgeInsets.all(15.0),
                   child: MaterialButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, "/home");
+                      showModalBottomSheet(
+                          context: context,
+                          builder: (context) {
+                            return const BottomPaymentMethodSheet();
+                          });
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),

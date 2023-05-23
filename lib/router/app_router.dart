@@ -4,7 +4,7 @@ import 'package:ecommerce_application/app/presentation/screens/cart_screen.dart'
 import 'package:ecommerce_application/app/presentation/screens/error_screen.dart';
 import 'package:ecommerce_application/app/presentation/screens/login_screen.dart';
 import 'package:ecommerce_application/app/presentation/screens/otp_verification.dart';
-import 'package:ecommerce_application/app/presentation/screens/payment_choice_screen.dart';
+import 'package:ecommerce_application/app/presentation/screens/payment_screen.dart';
 import 'package:ecommerce_application/app/presentation/screens/product_screen.dart';
 import 'package:ecommerce_application/app/presentation/screens/recover_password.dart';
 import 'package:ecommerce_application/app/presentation/screens/welcome_screen.dart';
