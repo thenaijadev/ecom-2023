@@ -1,11 +1,11 @@
 class Card {
   Card(
-      {required this.cartNumber,
+      {required this.cardNumber,
       required this.holderName,
       required this.expiryDate,
       required this.cvv});
-  final int cartNumber;
+  final int cardNumber;
   final String holderName;
-  final DateTime expiryDate;
+  final String expiryDate;
   final String cvv;
 }
