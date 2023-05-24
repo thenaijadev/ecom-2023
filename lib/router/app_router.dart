@@ -1,9 +1,11 @@
+import 'package:ecommerce_application/app/data/models/card_model.dart';
 import 'package:ecommerce_application/app/data/models/product_model.dart';
 import 'package:ecommerce_application/app/presentation/screens/buttom_nav_bar.dart';
 import 'package:ecommerce_application/app/presentation/screens/cart_screen.dart';
 import 'package:ecommerce_application/app/presentation/screens/error_screen.dart';
 import 'package:ecommerce_application/app/presentation/screens/login_screen.dart';
 import 'package:ecommerce_application/app/presentation/screens/otp_verification.dart';
+import 'package:ecommerce_application/app/presentation/screens/pay_now_screen.dart';
 import 'package:ecommerce_application/app/presentation/screens/payment_screen.dart';
 import 'package:ecommerce_application/app/presentation/screens/product_screen.dart';
 import 'package:ecommerce_application/app/presentation/screens/recover_password.dart';
@@ -44,6 +46,11 @@ class AppRouter {
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
+        );
+      case Routes.payNowScreen:
+        var data = routeSettings.arguments as CardModel;
+        return MaterialPageRoute(
+          builder: (_) => PayNowScreen(card: data),
         );
       case Routes.paymentScreen:
         return MaterialPageRoute(

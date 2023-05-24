@@ -9,7 +9,7 @@ abstract class PaymentCardsEvent extends Equatable {
 
 class AddPaymentCard extends PaymentCardsEvent {
   const AddPaymentCard({required this.card});
-  final Card card;
+  final CardModel card;
   @override
   List<Object> get props => [card];
 }

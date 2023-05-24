@@ -1,4 +1,5 @@
 import 'package:ecommerce_application/app/bloc/cart/cart_bloc.dart';
+import 'package:ecommerce_application/app/bloc/payment_card_bloc/payment_cards_bloc.dart';
 import 'package:ecommerce_application/app/bloc/products_bloc/products_bloc.dart';
 import 'package:ecommerce_application/router/app_router.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CartBloc()..add(CartStarted()),
+        ),
+        BlocProvider(
+          create: (context) => PaymentCardsBloc(),
         ),
       ],
       child: MaterialApp(

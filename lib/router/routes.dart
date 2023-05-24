@@ -7,4 +7,5 @@ class Routes {
   static const String passwordRecoveryScreen = '/passwordrecovery';
   static const String otpVerifcationScreen = '/otpverification';
   static const String paymentScreen = '/payment';
+  static const String payNowScreen = '/paynow';
 }

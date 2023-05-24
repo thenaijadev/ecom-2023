@@ -1,4 +1,7 @@
+import 'package:ecommerce_application/app/bloc/payment_card_bloc/payment_cards_bloc.dart';
+import 'package:ecommerce_application/app/data/models/card_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddCardForm extends StatefulWidget {
   const AddCardForm({super.key});
@@ -8,6 +11,17 @@ class AddCardForm extends StatefulWidget {
 }
 
 class _AddCardFormState extends State<AddCardForm> {
+  late PaymentCardsBloc paymentCardsBloc;
+  @override
+  void initState() {
+    paymentCardsBloc = BlocProvider.of<PaymentCardsBloc>(context);
+    super.initState();
+  }
+
+  late String holderName;
+  late String cardNumber;
+  late String expiryDate;
+  late String cvv;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,11 +63,11 @@ class _AddCardFormState extends State<AddCardForm> {
                         ),
                       ),
                       keyboardType: TextInputType.name,
-
+                      onChanged: (value) {
+                        holderName = value;
+                      },
                       // key: formfieldkey_1,
-                      // onChanged: (val) {
-                      //   formfieldkey_1.currentState!.validate();
-                      // // },
+
                       // // validator: (val) {
                       // //   if (!val!.isValidEmail) {
                       // //     return 'Enter valid email';
@@ -82,7 +96,9 @@ class _AddCardFormState extends State<AddCardForm> {
                         ),
                       ),
                       keyboardType: TextInputType.name,
-
+                      onChanged: (value) {
+                        cardNumber = value;
+                      },
                       // key: formfieldkey_1,
                       // onChanged: (val) {
                       //   formfieldkey_1.currentState!.validate();
@@ -111,7 +127,9 @@ class _AddCardFormState extends State<AddCardForm> {
                         ),
                       ),
                       keyboardType: TextInputType.name,
-
+                      onChanged: (value) {
+                        expiryDate = value;
+                      },
                       // key: formfieldkey_1,
                       // onChanged: (val) {
                       //   formfieldkey_1.currentState!.validate();
@@ -140,7 +158,9 @@ class _AddCardFormState extends State<AddCardForm> {
                         ),
                       ),
                       keyboardType: TextInputType.name,
-
+                      onChanged: (value) {
+                        cvv = value;
+                      },
                       // key: formfieldkey_1,
                       // onChanged: (val) {
                       //   formfieldkey_1.currentState!.validate();
@@ -158,7 +178,18 @@ class _AddCardFormState extends State<AddCardForm> {
                     height: 10,
                   ),
                   MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      paymentCardsBloc.add(
+                        AddPaymentCard(
+                          card: CardModel(
+                              cardNumber: cardNumber,
+                              cvv: cvv,
+                              holderName: holderName,
+                              expiryDate: expiryDate),
+                        ),
+                      );
+                      Navigator.pop(context);
+                    },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
